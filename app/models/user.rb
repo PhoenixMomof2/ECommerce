@@ -1,9 +1,11 @@
 class User < ApplicationRecord
-    has_many :carts_items
-    has_many :cart_items, throguh: :carts 
+    has_many :carts
+    # has_many :cart_items, throguh: :carts 
  
     # has_many :cart_items
     # has_many :items, through: :cart_items
+
+    has_secure_password
 end
 
 
