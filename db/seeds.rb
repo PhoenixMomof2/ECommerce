@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-CartIem.destroy_all
-Cart.destroy_all
+UserItem.destroy_all
+User.destroy_all
 Item.destroy_all
 
-User.create(username: "vintage007",password: "123qwerty!")
+User.create(username: "vintage007", password: "123qwerty!")
 
 Item.create(name: "LOS ANGELES LAKERS", description: "MEN'S CREWNECK SWEATER", price: "280.00", image: "KN919004L_GY14_1391_2000x.jpeg")
 
