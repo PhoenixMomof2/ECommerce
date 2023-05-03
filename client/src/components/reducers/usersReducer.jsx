@@ -1,7 +1,6 @@
 const initialSate = {
-// users: [],
-// currentUsers: null
-// loggedIn: false
+users: [],
+loggedIn: false
 }
 
 // add all of the state values to the object above.
