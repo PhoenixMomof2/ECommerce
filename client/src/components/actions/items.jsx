@@ -1,17 +1,17 @@
-import { headers } from "../../Globals"
+import { headers } from "../Globals"
 import { setErrors } from "./errors";
 
-export const loadBlogs = () => {
+export const loadLists = () => {
   // thunk middleware uses these actions to make asynchronous calls
   // it expects a function to be returned
   // the function itself takes in a parameter called dispatch
 
   return dispatch => {
     // asynchronous calls
-    fetch('/blogs')
+    fetch('/lists')
     .then(resp => resp.json())
     .then(data => {
-      const action = { type: "LOAD_BLOGS", payload: data }
+      const action = { type: "LOAD_LISTS", payload: data }
       dispatch(action)
     })
   }
@@ -19,7 +19,7 @@ export const loadBlogs = () => {
 
 export const deleteBlog = (id) => {
   return dispatch => {
-    fetch(`/blogs/${ id }`, {
+    fetch(`/lists/${ id }`, {
       method: "DELETE",
       headers: {
         "Accept": "application/json"
@@ -39,7 +39,7 @@ export const deleteBlog = (id) => {
 
 export const editBlog = (id, formData, navigate) => {
   return dispatch => {
-    fetch(`/blogs/${id}`, {
+    fetch(`/lists/${id}`, {
       method: "PATCH",
       headers,
       body: JSON.stringify(formData)
@@ -52,14 +52,14 @@ export const editBlog = (id, formData, navigate) => {
           payload: data
         }
         dispatch(action);
-        navigate('/blogs')
+        navigate('/lists')
       })
   }
 }
 
 export const addBlog = (formData, navigate) => {
   return dispatch => {
-    fetch('/blogs', {
+    fetch('/lists', {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -73,14 +73,14 @@ export const addBlog = (formData, navigate) => {
           dispatch(setErrors(data.errors));
         } else {
           // addBlog(data)
-          // dispatch to BlogsReducer for adding a blog
+          // dispatch to ListsReducer for adding a blog
           const action = {
             type: "ADD_BLOG",
             payload: data
           }
           
           dispatch(action);
-          navigate('/blogs');
+          navigate('/lists');
         }
       });
   }
@@ -101,7 +101,7 @@ export const addComment = (content, blog_id, setErrors) => {
         if(data.errors) {
           setErrors(data.errors);
         } else {
-          // dispatching a comment to the blogsReducer
+          // dispatching a comment to the listsReducer
           const action = {
             type: "ADD_BLOG_COMMENT",
             payload: data

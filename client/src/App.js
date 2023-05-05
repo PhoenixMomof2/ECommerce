@@ -1,15 +1,23 @@
 import {Routes, Route} from 'react-router-dom'
 import './App.css';
 import { useSelector } from 'react-redux'
+import { useState, useEffect } from 'react';
 import Home from './components/auth/Home';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
-
+import { useDispatch } from 'react-redux';
+import { loadLists } from './components/actions/items';
 
 function App() {
-  const reduxState = useSelector((store) => store.reviewsReducer);
+  // const reduxState = useSelector((store) => store.reviewsReducer);
 
-  console.log(reduxState);
+  // console.log(reduxState);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadLists)
+  }, [dispatch])
+
   return (
     <div className="App">
       
