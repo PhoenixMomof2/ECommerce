@@ -17,6 +17,19 @@ export const loadLists = () => {
   }
 }
 
+export const loadFakeItems = () => {
+    return dispatch => {
+      fetch('https://fakestoreapi.com/products')
+      .then(resp => resp.json())
+      .then(data => {
+        console.log(data, "products")
+        const action = { type: "LOAD_FAKE_ITEMS", payload: data }
+        dispatch(action)
+      })
+    }
+  }
+
+
 export const deleteBlog = (id) => {
   return dispatch => {
     fetch(`/lists/${ id }`, {

@@ -15,9 +15,9 @@ const ItemCard = ({ item }) => {
   return (
     <div>
       <hr />
-      <h4><Link to={`/itemss/${ item.id }`}>{ item.title }</Link></h4>
+      <h4><Link to={`/items/${ item.id }`}>{ item.name }</Link></h4>
     <p>By: { item.author?.username }</p>
-      <p>{ item.content }</p>
+      <p>{ item.description }</p>
       {currentUser && currentUser.id === item.author.id ? <>
         <button onClick={() => navigate(`/items/${ item.id }/edit`)}>Edit</button>
         <button onClick={handleDelete}>Delete</button>

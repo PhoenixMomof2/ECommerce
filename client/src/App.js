@@ -7,6 +7,7 @@ import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import { useDispatch } from 'react-redux';
 import { loadLists } from './components/actions/items';
+import ItemList from "./components/items/ItemList"
 
 function App() {
   // const reduxState = useSelector((store) => store.reviewsReducer);
@@ -26,6 +27,7 @@ function App() {
                <Route path="/" element={<Home />} /> 
                <Route path="/login" element={<Login />} /> 
                <Route path="/signup" element={<Signup />} />  
+               <Route path="/items" element={<ItemList />} />  
              </Routes> 
 
      </div> 
