@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   get "/me", to: "users#show"
-  get "/items", to: "items#fake_items"
+  get "/items", to: "items#index"
   # resources :items, only: :index
   resources :user_items
   resources :users

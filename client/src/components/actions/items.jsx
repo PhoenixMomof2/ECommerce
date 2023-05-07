@@ -30,7 +30,7 @@ export const loadFakeItems = () => {
   }
 
 
-export const deleteBlog = (id) => {
+export const deleteItem = (id) => {
   return dispatch => {
     fetch(`/lists/${ id }`, {
       method: "DELETE",
@@ -43,7 +43,7 @@ export const deleteBlog = (id) => {
         // update reducer state;
         // how do we update reducer state?
         dispatch({
-          type: "DELETE_BLOG",
+          type: "DELETE_ITEM",
           payload: id
         });
       })

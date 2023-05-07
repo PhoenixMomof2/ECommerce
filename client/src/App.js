@@ -1,13 +1,17 @@
 import {Routes, Route} from 'react-router-dom'
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css';
 import { useSelector } from 'react-redux'
 import { useState, useEffect } from 'react';
 import Home from './components/auth/Home';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
+import Errors from './components/errors/Errors';
+import Navbar from './components/Navbar';
 import { useDispatch } from 'react-redux';
-import { loadLists } from './components/actions/items';
-import ItemList from "./components/items/ItemList"
+// import { loadLists } from './components/actions/items';
+import { loadFakeItems } from './components/actions/items';
+import ItemList from './components/items/ItemList';
 
 function App() {
   // const reduxState = useSelector((store) => store.reviewsReducer);
@@ -16,12 +20,14 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadLists)
+    dispatch(loadFakeItems())
   }, [dispatch])
 
   return (
+    // <Router>
     <div className="App">
-      
+       <Navbar />
+          <Errors />
      
              <Routes>
                <Route path="/" element={<Home />} /> 
@@ -31,6 +37,7 @@ function App() {
              </Routes> 
 
      </div> 
+    //  </Router>
    
     );
   } 

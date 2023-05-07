@@ -12,7 +12,6 @@ console.log(items)
 useEffect(() => {
     dispatch(loadFakeItems());
 }, [dispatch])
-console.log()
 
   return (
     <div className="row">
@@ -30,8 +29,8 @@ console.log()
   </div>
 </div>
 
-)}</div>
-  )
-}
+)}
+</div>
+)}
 
 export default ItemList
