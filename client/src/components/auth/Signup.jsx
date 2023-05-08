@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
-import { clearErrors } from '../actions/errors';
+import { setErrors, clearErrors } from '../actions/errors';
 import { useDispatch, useSelector } from 'react-redux';
 import { signupUser } from '../actions/users';
 

@@ -12,15 +12,18 @@ import { useDispatch } from 'react-redux';
 // import { loadLists } from './components/actions/items';
 import { loadFakeItems } from './components/actions/items';
 import ItemList from './components/items/ItemList';
+import { loadCurrentUser, loadUsers,  } from './components/actions/users';
 
 function App() {
   // const reduxState = useSelector((store) => store.reviewsReducer);
-
+  const [loading, setLoading] = useState(true);
   // console.log(reduxState);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadFakeItems())
+    dispatch(loadUsers(setLoading))
+    dispatch(loadCurrentUser(setLoading))
   }, [dispatch])
 
   return (
