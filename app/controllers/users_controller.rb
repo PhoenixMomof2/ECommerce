@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
     skip_before_action :authorize, only: :create
 
-    def index
-        render json: User.all
-       end
+    # 1:1 : may not need to render all users for an e-commerce site. Can /profile replace /me?
+    def profile
+        render json: @user, include: [:items]
+    end
 
     # GET /me 
     def show
@@ -12,18 +13,19 @@ class UsersController < ApplicationController
 
     # POST /signup
     def create
-        user = User.new(user_params)
-            if user.save
-                session[:user_id] = user.id
-                render json: user, status: 201
-            else
-                render json: { errors: user.erros.full_messages }, status: :unprocessable_entity
-            end
+        user = User.create!(user_params)
+        session[:user_id] = user.id
+        render json: user, status: :created
     end
+
+    # Stretch - a user can destroy their account
+    # def destroy
+    #     user = User.find_by(:id params[id])
+    # end
 
     private
     def user_params
-        params.permit(:username, :password)
+        params.permit(:username, :password, :password_confirmation)
     end
 
 end
