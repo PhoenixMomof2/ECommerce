@@ -13,7 +13,6 @@ end
         render json: @review, status: :created
     end
 
-    # 1:1 do I need before_action destroy if I'm using the current_user.id?
      def destroy
         @review = Review.find_by(id: params[:id])
         if @review.user_id == current_user.id 

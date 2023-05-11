@@ -10,8 +10,10 @@ User.destroy_all
 Item.destroy_all
 Review.destroy_all
 
-User.create(username: "vintage007", password: "123qwerty!")
+puts "Seeding users..."
+user1 = User.create(username: "vintage007", password: "123qwerty!")
 
+puts "Seeding items..."
 item1 = Item.create(name: "LOS ANGELES LAKERS", description: "MEN'S CREWNECK SWEATER", price: "280.00", image: "KN919004L_GY14_1391_2000x.jpeg")
 item2 = Item.create(name: "KOBE BRYANT", description: "MEN'S VINTAGE T-SHIRT", price: "90.00", image: "e5d65ca783f593283f9f1a2285c55297.jpeg")
 item3 = Item.create(name: "NEW YORK KNICKS", description: "MEN'S CREWNECK SWEATER", price: "280.00", image: "KN919004K__0450_2000x.jpeg")
@@ -19,7 +21,7 @@ item4 =Item.create(name: "GOLDEN STATE WARRIORS", description: "MEN'S CREWNECK S
 item5 = Item.create(name: "BOSTON CELTICS", description: "MEN'S CREWNECK SWEATER", price: "280.00", image: "KN919004C_GY14_1386_2000x.jpeg")
 item6 = Item.create(name: "ATLANTA HAWKS", description: "MEN'S CREWNECK SWEATER", price: "280.00", image: "KN919004H_GY14_1393_2000x.jpeg")
 item7 = Item.create(name: "PHOENIX SUNS", description: "MEN'S VINTAGE T-SHIRT", price: "80.00", image: "m_636f4bb4678c3a24ce07f4d2.jpeg")
-item8 = Item.create(name: "CHICAGO BULLS VS. ORLANDO MAGIC", description: "1996 EASTERN CONFERENCE CHAMPIONSHIP", price: "40.00", image: "DSC08833_clipped_rev_1_large.jpeg")
+item8 = Item.create(name: "CHICAGO BULLS VS. ORLANDO MAGIC", description: "1996 EASTERN CONFERENCE CHAMPIONSHIP T-SHIRT", price: "40.00", image: "DSC08833_clipped_rev_1_large.jpeg")
 item9 = Item.create(name: "JOHN STOCTON & KARL MALONE", description: "1993 ALL STAR MVPS", price: "40.00", image: "DSC08288_clipped_rev_4_clipped_rev_1_clipped_rev_1_grande.jpeg")
 item10 = Item.create(name: "MICHAEL JORDAN", description: "1996 EASTERN CONFERENCE CHAMPIONSHIP", price: "35.00", image: "s-l500.jpeg")
 item11 = Item.create(name: "UTAH JAZZ", description: "1998 NBA FINALS", price: "400.00", image: "Screen-Shot-2022-04-18-at-8.38.20-PM.jpeg")
@@ -28,6 +30,7 @@ item13 = Item.create(name: "CLEVELAND CAVAILERS", description: "WORKOUT T-SHIRT"
 item14 = Item.create(name: "CLEVELAND CAVAILERS", description: "T-SHIRT", price: "40.00", image: "Cleveland-Cavs-On-Fire-01010556325-wine-flat.jpeg")
 item15 = Item.create(name: "JAYLEN BROWN & JAYSON TATUM", description: "NBA JAM T-SHIRT", price: "35.00", image: "NBA-Jam-Celtics-Brown-And-Tatum-01010479013-green-flat.jpeg")
 
+puts "Seeding reviews..."
 review1 = Review.create(title: "I love this sweater!", review: "I was looking for a cool, comfortable crewneck. This hit all the marks for me.", user_id: user1.id , item_id: item1.id )
 review2 = Review.create(title: "The GOAT!", review: "RIP KOBE! Great shirt, comfortable fit.", user_id: user1.id , item_id: item2.id )
 review3 = Review.create(title: "Great Fit!", review: "This crewneck gets a lot of compliments. The fit is great and the fabric is thick.", user_id: user1.id , item_id: item3.id )
@@ -38,9 +41,8 @@ review7 = Review.create(title: "My son loves this shirt", review: "Good fitting 
 review8 = Review.create(title: "liked it", review: "Classic shirt for a good price.", user_id: user1.id , item_id: item8.id )
 review9 = Review.create(title: "Stockton to Malone!", review: "Classic pick and roll duo. Classic shirt. Good fit. Fair price.", user_id: user1.id , item_id: item9.id )
 review10 = Review.create(title: "Nice shirt", review: "The quality could be better but the price is fair.", user_id: user1.id , item_id: item10.id )
-review11 = Review.create(title: "", review: "", user_id: user1.id , item_id: item11.id )
-review12 = Review.create(title: "Arguably best year in basketball!", review: "Great colorway for summer. Nice fit.", user_id: user1.id , item_id: item11.id )
-review13 = Review.create(title: "Love this warmup!", review: "Great warmup and the vintage colorway is perfect.", user_id: user1.id , item_id: item12.id )
-review14 = Review.create(title: "great for workouts", review: "This shirt feels great during workouts. Washes great. If you want more flexibility and movmement, you might want", user_id: user1.id , item_id: item13.id )
-review15 = Review.create(title: "liked it", review: "Good shirt for the price.", user_id: user1.id , item_id: item14.id )
-review16 = Review.create(title: "Dynamic Duo", review: "My nephew loves this shirt. Tatum and Brown his two fav players.", user_id: user1.id , item_id: item15.id )
+review11 = Review.create(title: "Love this warmup!", review: "Great warmup and the vintage colorway is perfect.", user_id: user1.id , item_id: item11.id )
+review12 = Review.create(title: "Arguably best year in basketball!", review: "Great colorway for summer. Nice fit.", user_id: user1.id , item_id: item12.id )
+review13 = Review.create(title: "great for workouts", review: "This shirt feels great during workouts. Washes great. If you want more flexibility and movmement, you might want to go up a size.", user_id: user1.id , item_id: item13.id )
+review14 = Review.create(title: "liked it", review: "Good shirt for the price.", user_id: user1.id , item_id: item14.id )
+review15 = Review.create(title: "Dynamic Duo", review: "My nephew loves this shirt. Tatum and Brown his two fav players.", user_id: user1.id , item_id: item15.id )

@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :authorize, only: :create
 
-    # 1:1 : may not need to render all users for an e-commerce site. Can /profile replace /me?
-    def profile
-        render json: @user, include: [:items]
-    end
-
     # GET /me 
     def show
         render json: @current_user
