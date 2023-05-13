@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  # TODO : fix routes for user_items /cart
-  # post "/cart", to: "user_items#cart"
-  # update "/cart", to: "user_items#cart"
   post "/charges", to: "charges#create"
   get "/me", to: "users#show"
 

@@ -16,7 +16,6 @@ const Login = ({ loading }) => {
 
   useEffect(() => {
     // code here is what happens on mount
-
     if(!loading && loggedIn) {
       navigate('/')
     }

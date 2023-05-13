@@ -8,7 +8,7 @@ export const loadLists = () => {
 
   return dispatch => {
     // asynchronous calls
-    fetch('/lists')
+    fetch('/items')
     .then(resp => resp.json())
     .then(data => {
       const action = { type: "LOAD_LISTS", payload: data }
@@ -17,17 +17,17 @@ export const loadLists = () => {
   }
 }
 
-export const loadFakeItems = () => {
-    return dispatch => {
-      fetch('https://fakestoreapi.com/products')
-      .then(resp => resp.json())
-      .then(data => {
-        console.log(data, "products")
-        const action = { type: "LOAD_FAKE_ITEMS", payload: data }
-        dispatch(action)
-      })
-    }
-  }
+// export const loadFakeItems = () => {
+//     return dispatch => {
+//       fetch('https://fakestoreapi.com/products')
+//       .then(resp => resp.json())
+//       .then(data => {
+//         console.log(data, "products")
+//         const action = { type: "LOAD_FAKE_ITEMS", payload: data }
+//         dispatch(action)
+//       })
+//     }
+//   }
 
 
 export const deleteItem = (id) => {

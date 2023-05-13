@@ -1,5 +1,6 @@
 import React, { useEffect} from 'react'
-import { loadFakeItems } from '../actions/items'
+// import { loadFakeItems } from '../actions/items'
+import { loadLists } from '../actions/items'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -10,7 +11,7 @@ const items = useSelector(store => store.itemsReducer)
 console.log(items)
 
 useEffect(() => {
-    dispatch(loadFakeItems());
+    dispatch(loadLists());
 }, [dispatch])
 
   return (

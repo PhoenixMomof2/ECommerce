@@ -14,7 +14,7 @@ import rootReducer from './components/reducers'
 const store = createStore(rootReducer, composeWithDevTools(
   applyMiddleware(thunk)
 ));
-console.log('I am in the store', store)
+
 
 // const root = ReactDOM.createRoot(document.getElementById('root'))
 

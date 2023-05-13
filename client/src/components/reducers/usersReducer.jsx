@@ -1,4 +1,4 @@
-const initialSate = {
+const initialState = {
 users: [],
 currentUser: null,
 loggedIn: false
@@ -6,7 +6,7 @@ loggedIn: false
 
 // add all of the state values to the object above.
 
-const usersReducer = (state=initialSate, action) => {
+const usersReducer = (state=initialState, action) => {
     switch(action.type) {
         case "LOAD_USERS":
             return {
@@ -27,12 +27,9 @@ const usersReducer = (state=initialSate, action) => {
         case "LOGOUT_USER":
             return {
                 ...state,
-                currentUser: initialSate.currentUser,
+                currentUser: null,
                 loggedIn: false
             }
-           
-
-        
         default:
             return state
     }

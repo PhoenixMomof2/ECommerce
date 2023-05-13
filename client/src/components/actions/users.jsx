@@ -1,21 +1,22 @@
 import { setErrors, clearErrors } from "./errors";
 import { headers } from "../Globals"
 
-export const loadUsers = (setLoading) => {
-  return dispatch => {
-    fetch("/users")
-    .then(resp => resp.json())
-    .then(data => {
-      const action = {
-        type: "LOAD_USERS",
-        payload: data
-      }
-      // setUsers(data)
-      setLoading(false)
-      dispatch(action);
-    })
-  }
-}
+// export const loadUsers = (setLoading) => {
+  // TODO ; may not need to loadUsers as the users_controller only has a show action and not an index to load User.all
+  // return dispatch => {
+  //   fetch("/users")
+  //   .then(resp => resp.json())
+  //   .then(data => {
+  //     const action = {
+  //       type: "LOAD_USERS",
+  //       payload: data
+  //     }
+  //     // setUsers(data)
+  //     setLoading(false)
+  //     dispatch(action);
+  //   })
+  // }
+// }
 
 export const loadCurrentUser = (setLoading) => {
   return dispatch => {
@@ -55,7 +56,7 @@ export const loginUser = (user, navigate) => {
           }
           dispatch(action)
           dispatch(clearErrors())
-          navigate("/blogs")
+          navigate("/")
         }
       })
   }
@@ -81,7 +82,7 @@ export const signupUser = (user, navigate) => {
             type: "ADD_USER",
             payload: data
           })
-          navigate("/items")
+          navigate("/")
         }
       })
   }

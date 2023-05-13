@@ -14,6 +14,7 @@ puts "Seeding users..."
 user1 = User.create(username: "vintage007", password: "123qwerty!")
 
 puts "Seeding items..."
+# TODO : fix image links or find new images
 item1 = Item.create(name: "LOS ANGELES LAKERS", description: "MEN'S CREWNECK SWEATER", price: "280.00", image: "KN919004L_GY14_1391_2000x.jpeg")
 item2 = Item.create(name: "KOBE BRYANT", description: "MEN'S VINTAGE T-SHIRT", price: "90.00", image: "e5d65ca783f593283f9f1a2285c55297.jpeg")
 item3 = Item.create(name: "NEW YORK KNICKS", description: "MEN'S CREWNECK SWEATER", price: "280.00", image: "KN919004K__0450_2000x.jpeg")
