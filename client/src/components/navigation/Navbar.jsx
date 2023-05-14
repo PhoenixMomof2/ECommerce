@@ -5,7 +5,7 @@ import { logoutUser } from '../actions/users'
 // TODO : import { Link } from 'react-scroll'
 
 
-
+// TODO : render reviews to the Navbar. 
 const Navbar = () => {
   const { loggedIn, currentUser } = useSelector(store => store.usersReducer)
   const dispatch = useDispatch();
@@ -24,6 +24,7 @@ const Navbar = () => {
         <Link to="/">DEMEURE</Link>
         <br></br>
         <Link to="/shop-all">Shop</Link>
+        <Link to="/reviews">Reviews</Link>
         <li><Link to="/login" onClick={ handleLogout }>Logout</Link></li>
         
 
@@ -37,7 +38,10 @@ const Navbar = () => {
     return (
       <nav>
         <div>
+        <Link to="/">DEMEURE</Link>
+        <br></br>
           <Link to="/Signup">Signup</Link>
+          <br></br>
           <Link to="/Login">Login</Link>
           {/* <li><Link to="#" onClick={ handleLogout }>Logout</Link></li> */}
         </div>
@@ -48,7 +52,7 @@ const Navbar = () => {
   return (
     <ul>
       {/* <li><Link to="/">Home</Link></li> */}
-      { loggedIn ? loggedInLinks() : LoggedOutLinks }
+      { loggedIn ? loggedInLinks() : LoggedOutLinks() }
     </ul>
 
   )

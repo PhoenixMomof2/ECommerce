@@ -29,7 +29,7 @@ export const loadLists = () => {
 //     }
 //   }
 
-
+// Check syntax of deleteItem. Missing data in the dispatch?
 export const deleteItem = (id) => {
   return dispatch => {
     fetch(`/lists/${ id }`, {

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :user_items, only: [:cart, :show, :index, :destroy]
   resources :users, except: [:update, :destroy]
   resources :items, only: [:index, :show]
+  # TODO : may want to add a show route for reviews to search a partical item and have it's review associated.
   resources :reviews, except: [:show, :update]
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

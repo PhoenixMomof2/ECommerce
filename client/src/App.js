@@ -12,6 +12,8 @@ import { useDispatch } from 'react-redux';
 import { loadLists } from './components/actions/items';
 // import { loadFakeItems } from './components/actions/items';
 import ItemList from './components/items/ItemList';
+import { loadReviews } from './components/actions/reviews';
+import ReviewList from './components/reviews/ReviewList'
 import { loadCurrentUser, /*loadUsers,*/  } from './components/actions/users';
 
 function App() {
@@ -24,6 +26,9 @@ function App() {
     dispatch(loadLists())
     // dispatch(loadUsers(setLoading))
     dispatch(loadCurrentUser(setLoading))
+    dispatch(loadReviews())
+    // finish building out dispatch reviews.
+
   }, [dispatch])
 
   return (
@@ -37,6 +42,7 @@ function App() {
                <Route path="/login" element={<Login />} /> 
                <Route path="/signup" element={<Signup loading={ loading } /> } />  
                <Route path="/shop-all" element={<ItemList loading={ loading } /> } />  
+               <Route path="/reviews" element={<ReviewList loading={ loading } /> } />  
              </Routes> 
 
      </div> 

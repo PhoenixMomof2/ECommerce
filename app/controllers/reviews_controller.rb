@@ -7,6 +7,8 @@ def index
     render json: Review.all
 end
 
+# TODO : may want to add a show route to search a specific item and see all associated reviews.
+# how to get all reviews associated with items?
 
     def create
         @review = Review.create!(review_params)
