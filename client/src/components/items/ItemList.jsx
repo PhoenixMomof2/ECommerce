@@ -1,5 +1,4 @@
 import React, { useEffect} from 'react'
-// import { loadFakeItems } from '../actions/items'
 import { loadLists } from '../actions/items'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -8,7 +7,7 @@ const ItemList = () => {
 
 const dispatch = useDispatch();
 const items = useSelector(store => store.itemsReducer)
-console.log(items)
+console.log(items, "these are all my items")
 
 useEffect(() => {
     dispatch(loadLists());
@@ -18,9 +17,9 @@ useEffect(() => {
     <div className="row">
         {items.map((item) => 
         <div className="card" style={{'width': '18rem'}} key={item.id}>
-        <img src={item.image} className="card-img-top img-thumbnail" alt={item.title}/>
+        <img src={item.image} className="card-img-top img-thumbnail" alt={item.name}/>
         <div className="card-body">
-        <h5 className="card-title">{item.title}</h5>
+        <h5 className="card-title">{item.name}</h5>
         <p className="card-text">{item.description}</p>
         <p className="card-text">{item.price}</p>
   </div>

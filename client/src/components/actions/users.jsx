@@ -20,7 +20,7 @@ import { headers } from "../Globals"
 
 export const loadCurrentUser = (setLoading) => {
   return dispatch => {
-    fetch('/get-current-user')
+    fetch('/me')
       .then(resp => resp.json())
       .then(data => {
         if(!data.errors) {

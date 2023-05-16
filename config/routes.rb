@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post "/charges", to: "charges#create"
   get "/me", to: "users#show"
+  # get "/shop-all", to: ""
 
 
   resources :users, only: :index do

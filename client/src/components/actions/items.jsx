@@ -6,12 +6,14 @@ export const loadLists = () => {
   // it expects a function to be returned
   // the function itself takes in a parameter called dispatch
 
+  // TODO : set errors if else statement.
   return dispatch => {
     // asynchronous calls
     fetch('/items')
     .then(resp => resp.json())
     .then(data => {
-      const action = { type: "LOAD_LISTS", payload: data }
+      const action = ({ type: "LOAD_LISTS", payload: data })
+      console.log(data)
       dispatch(action)
     })
   }

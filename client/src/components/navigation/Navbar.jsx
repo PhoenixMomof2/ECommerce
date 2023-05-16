@@ -23,7 +23,8 @@ const Navbar = () => {
         <li> {currentUser.username} </li>
         <Link to="/">DEMEURE</Link>
         <br></br>
-        <Link to="/shop-all">Shop</Link>
+        <Link to="/items">Shop</Link>
+        <br></br>
         <Link to="/reviews">Reviews</Link>
         <li><Link to="/login" onClick={ handleLogout }>Logout</Link></li>
         

@@ -27,7 +27,7 @@ function App() {
     // dispatch(loadUsers(setLoading))
     dispatch(loadCurrentUser(setLoading))
     dispatch(loadReviews())
-    // finish building out dispatch reviews.
+    // finish building out dispatch reviews
 
   }, [dispatch])
 
@@ -41,7 +41,7 @@ function App() {
                <Route path="/" element={<Home />} /> 
                <Route path="/login" element={<Login />} /> 
                <Route path="/signup" element={<Signup loading={ loading } /> } />  
-               <Route path="/shop-all" element={<ItemList loading={ loading } /> } />  
+               <Route path="/items" element={<ItemList loading={ loading } /> } />  
                <Route path="/reviews" element={<ReviewList loading={ loading } /> } />  
              </Routes> 
 

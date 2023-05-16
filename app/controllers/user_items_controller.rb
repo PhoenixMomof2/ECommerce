@@ -1,5 +1,5 @@
 class UserItemsController < ApplicationController
- before_action :authorize, only: :cart
+#  before_action :authorize, only: :cart
     # Full CRUD Controller
     def cart
         cartItem = UserItem.find{|userItem| userItem.item_id === params[:item_id] && userItem.user_id === params[:user_id]}
