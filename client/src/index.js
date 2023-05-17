@@ -15,7 +15,6 @@ const store = createStore(rootReducer, composeWithDevTools(
   applyMiddleware(thunk)
 ));
 
-
 // const root = ReactDOM.createRoot(document.getElementById('root'))
 
 ReactDOM.render(

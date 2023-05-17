@@ -37,7 +37,7 @@ export const loadCurrentUser = (setLoading) => {
       })
   }
 }
-
+// TODO : review 2nd then. May need an errors key on the 2nd .then. Look into what is the object. Run line 50.
 export const loginUser = (user, navigate) => {
   return dispatch => {
     fetch("/login", {
@@ -47,6 +47,7 @@ export const loginUser = (user, navigate) => {
     })
       .then(resp => resp.json())
       .then(data => {
+        //console.log(data)
         if(data.errors) {
           dispatch(setErrors(data.errors));
         } else {

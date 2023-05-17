@@ -10,11 +10,13 @@ import Errors from './components/errors/Errors';
 import Navbar from './components/navigation/Navbar'
 import { useDispatch } from 'react-redux';
 import { loadLists } from './components/actions/items';
+import DummyList from './components/items/ItemList';
+// import DummyNav from './components/navigation/Navbar';
 // import { loadFakeItems } from './components/actions/items';
 import ItemList from './components/items/ItemList';
 import { loadReviews } from './components/actions/reviews';
 import ReviewList from './components/reviews/ReviewList'
-import { loadCurrentUser, /*loadUsers,*/  } from './components/actions/users';
+import { loadCurrentUser, /*loadUsers*/  } from './components/actions/users';
 
 function App() {
   // const reduxState = useSelector((store) => store.reviewsReducer);
@@ -33,12 +35,13 @@ function App() {
 
   return (
     // <Router>
-    <div className="App">
+    <div className="container-flex bg-success">
        <Navbar />
           <Errors />
      
              <Routes>
                <Route path="/" element={<Home />} /> 
+               {/* <Route path="/dummy" element={<DummyList />} />  */}
                <Route path="/login" element={<Login />} /> 
                <Route path="/signup" element={<Signup loading={ loading } /> } />  
                <Route path="/items" element={<ItemList loading={ loading } /> } />  

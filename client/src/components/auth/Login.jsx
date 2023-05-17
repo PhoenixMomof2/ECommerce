@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setErrors, clearErrors } from '../actions/errors';
 import { loginUser } from '../actions/users';
+import Errors from '../errors/Errors';
 
+// TODO : I am able to login without signing up. My errors are working in Postman when tested but are not working on the front end. 
 
 const Login = ({ loading }) => {
   const { loggedIn } = useSelector(store => store.usersReducer);
@@ -32,7 +34,7 @@ const Login = ({ loading }) => {
 
     dispatch(loginUser(user, navigate))
   }
-
+// console.log(setErrors)
   return (
     <form onSubmit={ handleSubmit }>
       <h1>Login</h1>
@@ -61,6 +63,8 @@ const Login = ({ loading }) => {
       </div>
 
       <input type="submit" value="Login" />
+       {/* <li> {setErrors} </li> */}
+      <div> <Errors /> </div>
     </form>
   )
 }
