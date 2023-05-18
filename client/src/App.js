@@ -6,17 +6,19 @@ import { useState, useEffect } from 'react';
 import Home from './components/auth/Home';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
+import Checkout from './components/items/Checkout';
 import Errors from './components/errors/Errors';
 import Navbar from './components/navigation/Navbar'
 import { useDispatch } from 'react-redux';
 import { loadLists } from './components/actions/items';
-import DummyList from './components/items/ItemList';
+// import ItemList from './components/items/ItemList';
 // import DummyNav from './components/navigation/Navbar';
 // import { loadFakeItems } from './components/actions/items';
 import ItemList from './components/items/ItemList';
 import { loadReviews } from './components/actions/reviews';
 import ReviewList from './components/reviews/ReviewList'
 import { loadCurrentUser, /*loadUsers*/  } from './components/actions/users';
+import ItemDetails from './components/items/ItemDetails';
 
 function App() {
   // const reduxState = useSelector((store) => store.reviewsReducer);
@@ -46,6 +48,10 @@ function App() {
                <Route path="/signup" element={<Signup loading={ loading } /> } />  
                <Route path="/items" element={<ItemList loading={ loading } /> } />  
                <Route path="/reviews" element={<ReviewList loading={ loading } /> } />  
+               <Route path="/checkout" element={<Checkout /> } /> 
+               <Route path="/item-details" element={<ItemDetails /> } /> 
+
+
              </Routes> 
 
      </div> 

@@ -30,8 +30,9 @@ const ItemList = () => {
                   <h5 className="card-title">{item.name}</h5>
                   <p className="card-text">{item.price}</p>
                   <div className="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                    {/* TODO : edit buttons. Line 35 - potentially add another button on hte items page. */}
                     <Link to="#!" className="btn btn-primary shadow-0 me-1">Add to cart</Link>
-                    <Link to="#!" className="btn btn-light border px-2 pt-2 icon-hover"><i className="fas fa-heart fa-lg text-secondary px-1"></i></Link>
+                    {/* <Link to="#!" className="btn btn-light border px-2 pt-2 icon-hover"><i className="fas fa-heart fa-lg text-secondary px-1"></i></Link> */}
                   </div>
                 </div>
               </div>
