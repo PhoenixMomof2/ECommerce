@@ -6,7 +6,7 @@ import { logoutUser } from '../actions/users'
 
 
 const LoggedInLinks = () => {
-  const { currentUser, user_items } = useSelector(store => store.usersReducer)
+  const { currentUser } = useSelector(store => store.usersReducer)
   const dispatch = useDispatch();
   const [cartCount, setCartCount] = useState(0)
 
@@ -16,10 +16,11 @@ const LoggedInLinks = () => {
   }        
  useEffect(() => {
     let count = 0
-    user_items.forEach((item) => {
-      count += item.qty
+    currentUser.user_items.forEach((item) => {
+      count += item.quantity
     })
- }, [user_items, cartCount])
+    setCartCount(count)
+ }, [currentUser.user_items, cartCount])
 
 return (
   <div className="collapse navbar-collapse" id="navbarColor03">

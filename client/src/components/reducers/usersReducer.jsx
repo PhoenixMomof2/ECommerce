@@ -44,19 +44,7 @@ const usersReducer = (state=initialState, action) => {
                         ...state, 
                         showItem: action.payload
                     }
-            //   case "ADD_TO_CART":
-            //     const item = state.items.find(item => item.id === action.payload.id)
-            //     // check if item is in the user_items already
-            //     const inCart = state.user_items.find(item => item.id === action.payload.id /*? true : false*/)
-
-            //     return {
-            //         ...state,
-            //         user_items: inCart ? state.user_items.map((item) => item.id === action.payload.id ? { ...item, quantity: item.quantity + 1} :item ) : [...state.user_items, { ...item, quantity: 1 }],
-                    
-            //         currentUser: {...state.currentUser, user_items: inCart ? state.currentUser.user_items.map((item) => item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } :item ) : [...state.currentUser.user_items, { ...item, quantity: 1 }]}
-
-                  
-            //     }
+          
             case "ADD_TO_CART":
       const item = action.payload;
       const inCart = state.currentUser.user_items.find(
