@@ -10,14 +10,16 @@ import Checkout from './components/items/Checkout';
 import Errors from './components/errors/Errors';
 import Navbar from './components/navigation/Navbar'
 import { useDispatch } from 'react-redux';
-import { loadLists } from './components/actions/items';
+import About from './components/About';
+import { loadItems } from './components/actions/items';
+import Cart from './components/Cart';
 // import ItemList from './components/items/ItemList';
 // import DummyNav from './components/navigation/Navbar';
 // import { loadFakeItems } from './components/actions/items';
 import ItemList from './components/items/ItemList';
 import { loadReviews } from './components/actions/reviews';
 import ReviewList from './components/reviews/ReviewList'
-import { loadCurrentUser, /*loadUsers*/  } from './components/actions/users';
+import { loadCurrentUser } from './components/actions/users';
 import ItemDetails from './components/items/ItemDetails';
 
 function App() {
@@ -27,11 +29,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadLists())
-    // dispatch(loadUsers(setLoading))
+    dispatch(loadItems())
     dispatch(loadCurrentUser(setLoading))
     dispatch(loadReviews())
-    // finish building out dispatch reviews
+    // TODO : finish building out dispatch reviews
 
   }, [dispatch])
 
@@ -43,13 +44,14 @@ function App() {
      
              <Routes>
                <Route path="/" element={<Home />} /> 
-               {/* <Route path="/dummy" element={<DummyList />} />  */}
                <Route path="/login" element={<Login />} /> 
                <Route path="/signup" element={<Signup loading={ loading } /> } />  
                <Route path="/items" element={<ItemList loading={ loading } /> } />  
                <Route path="/reviews" element={<ReviewList loading={ loading } /> } />  
+               <Route path="/about" element={<About /> } />  
+               <Route path="/cart" element={<Cart /> } />  
                <Route path="/checkout" element={<Checkout /> } /> 
-               <Route path="/item-details" element={<ItemDetails /> } /> 
+               <Route path="/items/:id" element={<ItemDetails /> } /> 
 
 
              </Routes> 

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post "/charges", to: "charges#create"
   get "/me", to: "users#show"
+  post "/cart", to: "user_items#cart"
   # post "/checkout", to: "user_items#post"
 
 
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   # resources :user_items, only: [:index, :show, :create, :destroy, :update]
-  resources :user_items, only: [:cart, :show, :index, :destroy]
+  resources :user_items, only: [:show, :index, :destroy]
   resources :users, except: [:update, :destroy]
   resources :items, only: [:index, :show]
   # TODO : may want to add a show route for reviews to search a partical item and have it's review associated.

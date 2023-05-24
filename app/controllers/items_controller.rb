@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
     skip_before_action :authorize, only: :index
+    before_action :find_item, only: :show
 
     # TODO : may need to render current_user.items to shopping cart nest items in particular cart
     # This may need to happen in user_items_controller
@@ -12,9 +13,11 @@ class ItemsController < ApplicationController
 
     # TODO : if we GET one item, we should also see that item's reviews
     def show
-        @items = Item.find(params [:id])
-       
-        render json: @item
+        render json: @item, status: :ok
+    end
 
+    private 
+    def find_item
+        @item = Item.find_by(id: params[:id])
     end
 end

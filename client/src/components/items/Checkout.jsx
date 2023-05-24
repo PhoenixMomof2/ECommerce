@@ -177,7 +177,7 @@ const Checkout = () => {
                         </div>
                     </div>
                     <hr className="mb-4" />                    
-                  <button className="btn btn-primary" type="button">Continue to checkout</button>
+                  <button className="btn btn-primary" type="button"> <i className="bi bi-cart3"></i>Continue to checkout</button>
                 </div>
                 {/* <!--/.Card--> */}
             </div>

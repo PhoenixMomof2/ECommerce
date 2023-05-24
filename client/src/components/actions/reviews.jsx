@@ -16,10 +16,10 @@ export const loadReviews = () => {
        })
     }
 
-    <div>
-        reviews
-        build out similar to items.jsx action file.
-    </div>
+    // <div>
+        // reviews
+        // build out similar to items.jsx action file.
+    // {/* </div> */}
   
 }
 
