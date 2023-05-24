@@ -2,11 +2,9 @@ const initialState = {
 users: [],
 currentUser: null,
 loggedIn: false,
-user_items: [],
+user_items: [], //user_items is cart
 showItem: null, 
 items: [],
-
-
 }
 
 // add all of the state values to the object above.
@@ -40,36 +38,54 @@ const usersReducer = (state=initialState, action) => {
                     ...state,
                      items: action.payload
                   }
-                //   case "ADD_ITEM":
-                //     return {
-                //         ...state,
-                //         user_items: [...state.user_items, action.payload]
-                //     }
+            
                 case "SHOW_ITEM":
                     return {
                         ...state, 
                         showItem: action.payload
                     }
-              case "ADD_ITEM_TO_user_items":
-                const item = state.items.find(item => item.id === action.payload.id)
-                // check if item is in the user_items already
-                const inuser_items = state.userItems.find(item => item.id === action.payload.id ? true : false)
+            //   case "ADD_TO_CART":
+            //     const item = state.items.find(item => item.id === action.payload.id)
+            //     // check if item is in the user_items already
+            //     const inCart = state.user_items.find(item => item.id === action.payload.id /*? true : false*/)
+
+            //     return {
+            //         ...state,
+            //         user_items: inCart ? state.user_items.map((item) => item.id === action.payload.id ? { ...item, quantity: item.quantity + 1} :item ) : [...state.user_items, { ...item, quantity: 1 }],
+                    
+            //         currentUser: {...state.currentUser, user_items: inCart ? state.currentUser.user_items.map((item) => item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } :item ) : [...state.currentUser.user_items, { ...item, quantity: 1 }]}
+
+                  
+            //     }
+            case "ADD_TO_CART":
+      const item = action.payload;
+      const inCart = state.currentUser.user_items.find(
+        (cartItem) => cartItem.id === item.id
+      );
+      const updatedUserItems = inCart
+        ? state.currentUser.user_items.map((cartItem) =>
+            cartItem.id === item.id
+              ? { ...cartItem, quantity: cartItem.quantity + 1 }
+              : cartItem
+          )
+        : [...state.currentUser.user_items, { ...item, quantity: 1 }];
+
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          user_items: updatedUserItems
+        }
+    }
+            case "ADJUST_QTY":
+                return {...state, user_items: state.user_items.map(item => item.id === action.payload.id ? {...item, quantity: action.payload.quantity} : item)}
+                  
+                case "REMOVE_FROM_CART":
                 return {
                     ...state,
-                    user_items: inuser_items ? state.user_items.map((item) => item.id === action.payload.id ? { ...item, qty: item.qty + 1} :item ) : [...state.user_items, { ...item, qty: 1 }]
+                    user_items: state.user_items.filter(item => item.id !== action.payload.id)
                 }
-            case "ADJUST_QTY":
-                return {...state, user_items: state.user_items.map(item => item.id === action.payload.id ? {...item, qty: action.payload.qty} : item)}
-                case "ADD_ITEM":
-                return state.find(item =>item.id === action.payload)   
-                case "REMOVE_ITEM":
-                return state.filter(item => item.id !== action.payload)
-                // case "DELETE_ITEM":
-                //     const updatedItems = state.items.filter(item => item.id !== action.payload);
-                //     return {
-                //         ...state,
-                //         items: updatedItems
-                //       };
+                
         default:
             return state;
     }

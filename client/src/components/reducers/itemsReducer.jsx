@@ -17,7 +17,7 @@
     //       ...state,
     //        item: action.payload
     //     }
-// case "ADD_TO_user_items":
+// case "ADD_TO_CART":
 //     const item = state.items.find(item => item.id === action.payload.id)
 //     // check if item is in the user_items already
 //     const inuser_items = state.user_items.find(item => item.id === action.payload.id ? true : false)
@@ -28,7 +28,7 @@
 // case "ADJUST_QTY":
 // return {...state, user_items: state.user_items.map(item => item.id === action.payload.id ? {...item, qty: action.payload.qty} : item)}
 // return {}
-//     case "REMOVE_FROM_user_items:
+//     case "REMOVE_FROM_CART:
 //       return { ...state, state.user_items.filter((item) => item.id !== action.payload.id)
 //   default:
 //   return state;

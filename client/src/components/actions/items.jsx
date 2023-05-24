@@ -22,10 +22,17 @@ export const loadItems = () => {
   }
 }
 
-export const addToCart = (id, navigate) => {
-    return { type: "ADD_TO_CART", payload: id }
-    navigate('/item-details')
-}
+// export const addToCart = (id) => {
+//     return { type: "ADD_TO_CART", payload: id }
+// }
+
+export const addToCart = (item) => {
+  return {
+    type: "ADD_TO_CART",
+    payload: item
+  };
+};
+
 
 export const removeFromCart = (id) => {
     return { type: "REMOVE_FROM_CART", payload: id }
@@ -63,7 +70,7 @@ export const showItem = (id) => {
       .then(data => {
         const action = {
           type: "SHOW_ITEM",
-          payload: id
+          payload: data
         };
         dispatch(action);
         // navigate(`/items/${id}`)
@@ -71,35 +78,35 @@ export const showItem = (id) => {
   };
 };
 
-export const removeItem = (item) => {
-  return dispatch => {
-    fetch(`/items/${item.id}`)
-      .then(resp => resp.json())
-      .then(data => {
-        const action = {
-          type: "REMOVE_ITEM",
-          payload: {
-            ...data,
-            quantity: data.quantity - 1 // Increment the quantity by 1
-          }
-        };
-        dispatch(action);
-      });
-  };
-};
+// export const removeItem = (item) => {
+//   return dispatch => {
+//     fetch(`/items/${item.id}`)
+//       .then(resp => resp.json())
+//       .then(data => {
+//         const action = {
+//           type: "REMOVE_ITEM",
+//           payload: {
+//             ...data,
+//             quantity: data.quantity - 1 // Increment the quantity by 1
+//           }
+//         };
+//         dispatch(action);
+//       });
+//   };
+// };
 
-export const addItemToCart= (item, navigate) => {
-  return dispatch => {
-    fetch(`/items/${ item.id }`)
-      .then(resp => resp.json())
-      .then(data => {
-        const action = {
-          type: "ADD_ITEM_TO_CART",
-          payload: data
-        };
-        dispatch(action)
-        navigate('/cart')
-      });
-  }
-}
+// export const addItemToCart= (item, navigate) => {
+//   return dispatch => {
+//     fetch(`/items/${ item.id }`)
+//       .then(resp => resp.json())
+//       .then(data => {
+//         const action = {
+//           type: "ADD_ITEM_TO_CART",
+//           payload: data
+//         };
+//         dispatch(action)
+//         navigate('/cart')
+//       });
+//   }
+// }
 

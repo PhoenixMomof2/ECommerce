@@ -18,8 +18,8 @@ const ItemList = () => {
     dispatch(showItem(id))
   }
 
-  const handleAddItem= (id) => {
-    dispatch(addToCart(items, navigate))
+  const handleAddItem= (item) => {
+    dispatch(addToCart(item))
     // console.log(`item ${id} clicked `) 
 }
 
@@ -40,7 +40,7 @@ const ItemList = () => {
                 <p className="card-text">${item.price}</p>
                 <div className="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
                 <button onClick={() => handleClick(item.id)} className="btn btn-primary shadow-0 me-1">Details</button>
-                <button onClick={() => handleAddItem(item.id)} className="btn btn-primary shadow-0 me-1">Add To Cart</button>
+                <button onClick={() => handleAddItem(item)} className="btn btn-primary shadow-0 me-1">Add To Cart</button>
                 </div>
               </div>
             </div>
