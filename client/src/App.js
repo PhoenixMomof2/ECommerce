@@ -12,7 +12,7 @@ import Navbar from './components/navigation/Navbar'
 import { useDispatch } from 'react-redux';
 import About from './components/About';
 import { loadItems } from './components/actions/items';
-import Cart from './components/Cart';
+// import Cart from './components/Cart';
 // import ItemList from './components/items/ItemList';
 // import DummyNav from './components/navigation/Navbar';
 // import { loadFakeItems } from './components/actions/items';
@@ -49,7 +49,7 @@ function App() {
                <Route path="/items" element={<ItemList loading={ loading } /> } />  
                <Route path="/reviews" element={<ReviewList loading={ loading } /> } />  
                <Route path="/about" element={<About /> } />  
-               <Route path="/cart" element={<Cart /> } />  
+               {/* <Route path="/cart" element={<Cart /> } />   */}
                <Route path="/checkout" element={<Checkout /> } /> 
                <Route path="/items/:id" element={<ItemDetails /> } /> 
 

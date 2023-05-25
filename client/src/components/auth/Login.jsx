@@ -64,7 +64,6 @@ const Login = ({ loading }) => {
 
       <input type="submit" value="Login" />
        {/* <li> {setErrors} </li> */}
-      <div> <Errors /> </div>
     </form>
   )
 }

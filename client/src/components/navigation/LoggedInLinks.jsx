@@ -37,7 +37,7 @@ return (
       <li className="nav-item">
         <Link className="nav-link" to="/login" onClick={handleLogout}>Logout</Link>
       </li>
-        <Link className="nav-link me-3" to="/cart">
+        <Link className="nav-link me-3" to="/checkout">
         <i className="bi bi-cart"></i>           
           <span className="badge rounded-pill badge-notification bg-danger">{cartCount}</span>
         </Link>

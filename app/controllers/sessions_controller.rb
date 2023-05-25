@@ -9,7 +9,7 @@ def create
         session[:user_id] = user.id
         render json: user, status: :created 
     else
-        render json: { error: ["Invalid username or password"] }, status: :unprocessable_entity
+        render json: { errors: ["Invalid username or password"] }, status: :unprocessable_entity
     end
 end
 
