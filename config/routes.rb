@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post "/charges", to: "charges#create"
   get "/me", to: "users#show"
-  post "/cart", to: "user_items#cart"
-  # post "/checkout", to: "user_items#post"
+  # post "/cart", to: "user_items#cart"
+  post "/checkout", to: "user_items#post"
 
 
 

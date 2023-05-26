@@ -1,255 +1,242 @@
 import React from "react"
-import CheckoutImg from '../images/CheckoutImg.jpg'
+import { Link } from 'react-router-dom'
 
 
+const Checkout = ({cartCount}) => {
+    // console.log(cartCount)
+    return (
 
-const Checkout = () => {
-    return(
-        
-<main className="mt-5 pt-4">
-    <div className="container bg-img">
-<img  className="mx-auto img-fluid" src={CheckoutImg}alt={CheckoutImg}/>
-        {/* <!-- Heading --> */}
-        <h2 className="my-5 text-center">Checkout form</h2>
+        // useEffect(() => {
+        //     let count = 0
+        //     currentUser.user_items.forEach((item) => {
+        //       count += item.quantity
+        //     })
+        //     setCartCount(count)
+        //  }, [currentUser.user_items, cartCount])
 
-        {/* <!--Grid row--> */}
-        <div className="row">
-            {/* <!--Grid column--> */}
-            <div className="col-md-8 mb-4">
-                {/* <!--Card--> */}
-                <div className="card p-4">
-                    {/* <!--Grid row--> */}
-                    <div className="row mb-3">
-                        {/* <!--Grid column--> */}
-                        <div className="col-md-6 mb-2">
-                            {/* <!--firstName--> */}
-                            <div className="form-outline">
-                                <input type="text" id="typeText" className="form-control" />
-                                <label className="form-label" for="typeText">First name</label>
-                            </div>
-                        </div>
-                        {/* <!--Grid column--> */}
+<section className="h-100 h-custom" style={{'backgroundColor': '#eee'}}>
+  <div className="container py-5 h-100">
+    <div className="row d-flex justify-content-center align-items-center h-100">
+      <div className="col">
+        <div className="card">
+          <div className="card-body p-4">
 
-                        {/* <!--Grid column--> */}
-                        <div className="col-md-6 mb-2">
-                            {/* <!--lastName--> */}
-                            <div className="form-outline">
-                                <input type="text" id="typeText" className="form-control" />
-                                <label className="form-label" for="typeText">Last name</label>
-                            </div>
-                        </div>
-                        {/* <!--Grid column--> */}
-                    </div>
-                    {/* <!--Grid row--> */}
+            <div className="row">
 
-                    {/* <!--Username--> */}
-                    <div className="input-group mb-4">
-                        <span className="input-group-text" id="basic-addon1">@</span>
-                        <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
-                    </div>
+              <div className="col-lg-7">
+                <h5 className="mb-3"><Link to="/items" className="text-body"><i
+                      className="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</Link></h5>
+                <hr/>
 
-                    {/* <!--email--> */}
-                    <p className="mb-0">
-                        Email (optional)
-                    </p>
-                    <div className="form-outline mb-4">
-                         <input type="email" className="form-control" placeholder="youremail@example.com" aria-label="youremail@example.com" aria-describedby="basic-addon1" />
-                    </div>
-
-                    {/* <!--address--> */}
-                    <p className="mb-0">
-                        Address
-                    </p>
-                    <div className="form-outline mb-4">
-                        <input type="email" className="form-control" placeholder="1234 Main St" aria-label="1234 Main St" aria-describedby="basic-addon1" />
-                    </div>
-
-                    {/* <!--address-2--> */}
-                    <p className="mb-0">
-                        Address 2 (optional)
-                    </p>
-                    <div className="form-outline mb-4">
-                        <input type="email" className="form-control" placeholder="Apartment or suite" aria-label="Apartment or suite" aria-describedby="basic-addon1" />
-                    </div>
-
-                    {/* <!--Grid row--> */}
-                    <div className="row">
-                        {/* <!--Grid column--> */}
-                        <div className="col-lg-4 col-md-12 mb-4">
-                            <p className="mb-0">
-                                Country
-                            </p>
-                            <div className="form-outline mb-4">
-                        <input type="email" className="form-control" placeholder="United States" aria-label="United States" aria-describedby="basic-addon1" />
-                    </div>
-                        </div>
-                        {/* <!--Grid column--> */}
-
-                        {/* <!--Grid column--> */}
-                        <div className="col-lg-4 col-md-12 mb-4">
-                            <p className="mb-0">
-                                State
-                            </p>
-                            <div className="form-outline mb-4">
-                        <input type="email" className="form-control" placeholder="California" aria-label="California" aria-describedby="basic-addon1" />
-                    </div>
-                        </div>
-                        {/* <!--Grid column--> */}
-
-                        {/* <!--Grid column--> */}
-                        <div className="col-lg-4 col-md-12 mb-4">
-                            <p className="mb-0">
-                                Zip
-                            </p>
-                            <div className="form-outline">
-                                <input type="text" className="form-control"/>
-                            </div>
-                        </div>
-                        {/* <!--Grid column--> */}
-                    </div>
-                    {/* <!--Grid row--> */}
-
-                    <hr />
-                    <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                        <label className="form-check-label" for="flexCheckDefault">Shipping address is the same as my billing address</label>
-                    </div>
-
-                    <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                        <label className="form-check-label" for="flexCheckDefault">Save this information for next time</label>
-                    </div>
-
-                    <hr />
-
-                    <div className="my-3">
-                        <div className="form-check">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked />
-                            <label className="form-check-label" for="flexRadioDefault1"> Credit card </label>
-                        </div>
-
-                        <div className="form-check">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
-                            <label className="form-check-label" for="flexRadioDefault2"> Debit card </label>
-                        </div>
-                        <div className="form-check">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
-                            <label className="form-check-label" for="flexRadioDefault3"> Paypal </label>
-                        </div>
-                    </div>
-                    <div className="row mb-3">
-                        <div className="col-md-6 mb-3">
-                            <p className="mb-0">
-                                Name on card
-                            </p>
-                            <div className="form-outline">
-                                <input type="text" className="form-control"/>
-                                <div className="form-helper">Full name as displayed on card</div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 mb-3">
-                            <p className="mb-0">
-                                Credit card number
-                            </p>
-                            <div className="form-outline">
-                                <input type="text" className="form-control" />                                
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-3 mb-3">
-                            <p className="mb-0">
-                                Expiration
-                            </p>
-                            <div className="form-outline">
-                                <input type="text" className="form-control" />
-                                
-                            </div>
-                        </div>
-                        <div className="col-md-3 mb-3">
-                            <p className="mb-0">
-                                CVV
-                            </p>
-                            <div className="form-outline">
-                                <input type="text" className="form-control" />
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <hr className="mb-4" />                    
-                  <button className="btn btn-primary" type="button"> <i className="bi bi-cart3"></i>Continue to checkout</button>
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                    <p className="mb-1">Shopping cart</p>
+                    {/* TODO : change 25 to reflect the quantity of items */}
+                    <p className="mb-0">You have {cartCount} items in your cart</p>
+                  </div>
+                  <div>
+                    <p className="mb-0"><span className="text-muted">Sort by:</span> <Link to="#!"
+                        className="text-body">price <i className="fas fa-angle-down mt-1"></i></Link></p>
+                  </div>
                 </div>
-                {/* <!--/.Card--> */}
+
+                <div className="card mb-3">
+                  <div className="card-body">
+                    <div className="d-flex justify-content-between">
+                      <div className="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                            className="img-fluid rounded-3" alt="Shopping item" style={{width: '65px'}}/>
+                        </div>
+                        <div className="ms-3">
+                          <h5>Iphone 11 pro</h5>
+                          <p className="small mb-0">256GB, Navy Blue</p>
+                        </div>
+                      </div>
+                      <div className="d-flex flex-row align-items-center">
+                        <div style={{width: '50px'}}>
+                          <h5 className="fw-normal mb-0">2</h5>
+                        </div>
+                        <div style={{width: '80px'}}>
+                          <h5 className="mb-0">$900</h5>
+                        </div>
+                        <Link to="#!" style={{color: '#cecece'}}><i className="fas fa-trash-alt"></i></Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="card mb-3">
+                  <div className="card-body">
+                    <div className="d-flex justify-content-between">
+                      <div className="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img2.webp"
+                            className="img-fluid rounded-3" alt="Shopping item" style={{width: '65px'}}/>
+                        </div>
+                        <div className="ms-3">
+                          <h5>Samsung galaxy Note 10 </h5>
+                          <p className="small mb-0">256GB, Navy Blue</p>
+                        </div>
+                      </div>
+                      <div className="d-flex flex-row align-items-center">
+                        <div style={{width: '50px'}}>
+                          <h5 className="fw-normal mb-0">2</h5>
+                        </div>
+                        <div style={{width: '80px'}}>
+                          <h5 className="mb-0">$900</h5>
+                        </div>
+                        <Link to="#!" style={{color: '#cecece'}}><i className="fas fa-trash-alt"></i></Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="card mb-3">
+                  <div className="card-body">
+                    <div className="d-flex justify-content-between">
+                      <div className="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img3.webp"
+                            className="img-fluid rounded-3" alt="Shopping item" style={{width: '65px'}}/>
+                        </div>
+                        <div className="ms-3">
+                          <h5>Canon EOS M50</h5>
+                          <p className="small mb-0">Onyx Black</p>
+                        </div>
+                      </div>
+                      <div className="d-flex flex-row align-items-center">
+                        <div style={{width: '50px'}}>
+                          <h5 className="fw-normal mb-0">1</h5>
+                        </div>
+                        <div style={{width: '80px'}}>
+                          <h5 className="mb-0">$1199</h5>
+                        </div>
+                        <Link to="#!" style={{color: '#cecece'}}><i className="fas fa-trash-alt"></i></Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="card mb-3 mb-lg-0">
+                  <div className="card-body">
+                    <div className="d-flex justify-content-between">
+                      <div className="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img4.webp"
+                            className="img-fluid rounded-3" alt="Shopping item" style={{width: '65px'}}/>
+                        </div>
+                        <div className="ms-3">
+                          <h5>MacBook Pro</h5>
+                          <p className="small mb-0">1TB, Graphite</p>
+                        </div>
+                      </div>
+                      <div className="d-flex flex-row align-items-center">
+                        <div style={{width: '50px'}}>
+                          <h5 className="fw-normal mb-0">1</h5>
+                        </div>
+                        <div style={{width: '80px'}}>
+                          <h5 className="mb-0">$1799</h5>
+                        </div>
+                        <Link to="#!" style={{color: '#cecece'}}><i className="fas fa-trash-alt"></i></Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div className="col-lg-5">
+
+                <div className="card bg-primary text-white rounded-3">
+                  <div className="card-body">
+                    <div className="d-flex justify-content-between align-items-center mb-4">
+                      <h5 className="mb-0">Card details</h5>
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
+                        className="img-fluid rounded-3" style={{width: '45px'}} alt="Avatar"/>
+                    </div>
+
+                    <p className="small mb-2">Card type</p>
+                    <Link to="#!" type="submit" className="text-white"><i
+                        className="fab fa-cc-mastercard fa-2x me-2"></i></Link>
+                    <Link to="#!" type="submit" className="text-white"><i
+                        className="fab fa-cc-visa fa-2x me-2"></i></Link>
+                    <Link to="#!" type="submit" className="text-white"><i
+                        className="fab fa-cc-amex fa-2x me-2"></i></Link>
+                    <Link to="#!" type="submit" className="text-white"><i className="fab fa-cc-paypal fa-2x"></i></Link>
+
+                    <form className="mt-4">
+                      <div className="form-outline form-white mb-4">
+                        <input type="text" id="typeName" className="form-control form-control-lg" size="17"
+                          placeholder="Cardholder's Name" />
+                        <label className="form-label" htmlFor="typeName">Cardholder's Name</label>
+                      </div>
+
+                      <div className="form-outline form-white mb-4">
+                        <input type="text" id="typeText" className="form-control form-control-lg" size="17"
+                          placeholder="1234 5678 9012 3457" minLength="19" maxLength="19" />
+                        <label className="form-label" htmlFor="typeText">Card Number</label>
+                      </div>
+
+                      <div className="row mb-4">
+                        <div className="col-md-6">
+                          <div className="form-outline form-white">
+                            <input type="text" id="typeExp" className="form-control form-control-lg"
+                              placeholder="MM/YYYY" size="7" /*id="exp"*/ minLength="7" maxLength="7" />
+                            <label className="form-label" htmlFor="typeExp">Expiration</label>
+                          </div>
+                        </div>
+                        <div className="col-md-6">
+                          <div className="form-outline form-white">
+                            <input type="password" id="typePassword" className="form-control form-control-lg"
+                              placeholder="&#9679;&#9679;&#9679;" size="1" minLength="3" maxLength="3" />
+                            <label className="form-label" htmlFor="typePassword">Cvv</label>
+                          </div>
+                        </div>
+                      </div>
+
+                    </form>
+
+                    <hr className="my-4"/>
+
+                    <div className="d-flex justify-content-between">
+                      <p className="mb-2">Subtotal</p>
+                      <p className="mb-2">$4798.00</p>
+                    </div>
+
+                    <div className="d-flex justify-content-between">
+                      <p className="mb-2">Shipping</p>
+                      <p className="mb-2">$20.00</p>
+                    </div>
+
+                    <div className="d-flex justify-content-between mb-4">
+                      <p className="mb-2">Total(Incl. taxes)</p>
+                      <p className="mb-2">$4818.00</p>
+                    </div>
+
+                    <button type="button" className="btn btn-info btn-block btn-lg">
+                      <div className="d-flex justify-content-between">
+                        <span>$4818.00</span>
+                        <span>Checkout <i className="fas fa-long-arrow-alt-right ms-2"></i></span>
+                      </div>
+                    </button>
+
+                  </div>
+                </div>
+
+              </div>
+
             </div>
-            {/* <!--Grid column--> */}
 
-            {/* <!--Grid column--> */}
-            <div className="col-md-4 mb-4">
-                {/* <!-- Heading --> */}
-                <h4 className="d-flex justify-content-between align-items-center mb-3">
-                    <span className="text-muted">Your cart</span>
-                    <span className="badge rounded-pill badge-primary">3</span>
-                </h4>
-
-                {/* <!-- Cart --> */}
-                <ul className="list-group mb-3">
-                    <li className="list-group-item d-flex justify-content-between">
-                        <div>
-                            <h6 className="my-0">Product name</h6>
-                            <small className="text-muted">Brief description</small>
-                        </div>
-                        <span className="text-muted">$12</span>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between">
-                        <div>
-                            <h6 className="my-0">Second product</h6>
-                            <small className="text-muted">Brief description</small>
-                        </div>
-                        <span className="text-muted">$8</span>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between">
-                        <div>
-                            <h6 className="my-0">Third item</h6>
-                            <small className="text-muted">Brief description</small>
-                        </div>
-                        <span className="text-muted">$5</span>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between bg-light">
-                        <div className="text-success">
-                            <h6 className="my-0">Promo code</h6>
-                            <small>EXAMPLECODE</small>
-                        </div>
-                        <span className="text-success">-$5</span>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between">
-                        <span>Total (USD)</span>
-                        <strong>$20</strong>
-                    </li>
-                </ul>
-                {/* <!-- Cart --> */}
-
-                {/* <!-- Promo code --> */}
-                <form className="card p-2">
-                    <div className="input-group mb-3">
-  <input
-    type="text"
-    className="form-control"
-    placeholder="Promo code"
-    aria-label="Promo code"
-    aria-describedby="button-addon2"
-  />
-  <button className="btn btn-primary" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-    redeem
-  </button>
-</div>
-                </form>
-                {/* <!-- Promo code --> */}
-            </div>
-            {/* <!--Grid column--> */}
+          </div>
         </div>
-        {/* <!--Grid row--> */}
+      </div>
     </div>
-</main>
-   )
+  </div>
+</section>
+)
 }
 export default Checkout

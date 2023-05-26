@@ -1,6 +1,7 @@
 const initialState = {
 users: [],
 currentUser: null,
+// currentUser: {},
 loggedIn: false,
 user_items: [], //user_items is cart
 showItem: null, 
@@ -47,7 +48,7 @@ const usersReducer = (state=initialState, action) => {
           
             case "ADD_TO_CART":
       const item = action.payload;
-      const inCart = state.currentUser.user_items.find(
+      const inCart = state.currentUser?.user_items?.find(
         (cartItem) => cartItem.id === item.id
       );
       const updatedUserItems = inCart
@@ -56,7 +57,7 @@ const usersReducer = (state=initialState, action) => {
               ? { ...cartItem, quantity: cartItem.quantity + 1 }
               : cartItem
           )
-        : [...state.currentUser.user_items, { ...item, quantity: 1 }];
+        : [...state.currentUser?.user_items ?? [], { ...item, quantity: 1 }];
 
       return {
         ...state,

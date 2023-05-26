@@ -5,7 +5,7 @@ import LoggedOutLinks from './LoggedOutLinks'
 import { useSelector } from 'react-redux'
 
 
-const Navbar = () => {
+const Navbar = ({cartCount, setCartCount}) => {
   const { loggedIn } = useSelector(store => store.usersReducer)
   return(
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -14,7 +14,7 @@ const Navbar = () => {
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
-{loggedIn ? <LoggedInLinks/> :<LoggedOutLinks/>}
+{loggedIn ? <LoggedInLinks cartCount={cartCount} setCartCount={setCartCount} /> :<LoggedOutLinks/>}
   </div>
 </nav>
   )

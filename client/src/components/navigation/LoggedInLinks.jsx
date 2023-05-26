@@ -5,22 +5,23 @@ import { logoutUser } from '../actions/users'
 
 
 
-const LoggedInLinks = () => {
+const LoggedInLinks = ({ cartCount }) => {
   const { currentUser } = useSelector(store => store.usersReducer)
   const dispatch = useDispatch();
-  const [cartCount, setCartCount] = useState(0)
+  // const [cartCount, setCartCount] = useState(0)
 
   const handleLogout = () => {
     fetch('/logout', {method: "DELETE"});
     dispatch(logoutUser())
-  }        
- useEffect(() => {
-    let count = 0
-    currentUser.user_items.forEach((item) => {
-      count += item.quantity
-    })
-    setCartCount(count)
- }, [currentUser.user_items, cartCount])
+  }  
+  // cartCount : move this useEffect to parent componenet and pass cartCount via props to loggedIn and Checkout components.      
+//  useEffect(() => {
+//     let count = 0
+//     currentUser.user_items.forEach((item) => {
+//       count += item.quantity
+//     })
+//     setCartCount(count)
+//  }, [currentUser?.user_items])
 
 return (
   <div className="collapse navbar-collapse" id="navbarColor03">
