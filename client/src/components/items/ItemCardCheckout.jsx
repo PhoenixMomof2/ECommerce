@@ -17,12 +17,13 @@ const ItemCardCheckout = ({item}) => {
                         </div>
                         <div className="ms-3">
                           <h5>{item.title}</h5>
+                          <p className="small mb-0">{item.name}</p>
                           <p className="small mb-0">{item.description}</p>
                         </div>
                       </div>
                       <div className="d-flex flex-row align-items-center">
                         <div style={{width: '50px'}}>
-                          <h5 className="fw-normal mb-0">2</h5>
+                          <h5 className="fw-normal mb-0">{item.quantity}</h5>
                         </div>
                         <div style={{width: '80px'}}>
                           <h5 className="mb-0">${item.price}</h5>
