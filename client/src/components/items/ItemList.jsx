@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-// import { useNavigate } from 'react-router-dom'
 import shoe from '../images/shoe.jpg'
 import { showItem, addToCart } from '../actions/items'
 import { useNavigate } from 'react-router-dom'
@@ -12,15 +11,15 @@ const ItemList = () => {
   const { items } = useSelector(store => store.usersReducer)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  // console.log(user_items, currentUser, "all items")
+
 
   const handleClick = (id) => {
     dispatch(showItem(id))
+    navigate(`/items/${id}`)
   }
 
   const handleAddItem= (item) => {
     dispatch(addToCart(item))
-    // console.log(`item ${id} clicked `) 
 }
 
   return (

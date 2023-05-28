@@ -2,6 +2,7 @@ import React from "react"
 import { Link, useParams, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart, removeFromCart, adjustQty } from '../actions/items'
+// import { loadReviews } from "../actions/reviews"
 
 // TODO : edit component 
 const ItemDetails = () => {
@@ -9,8 +10,10 @@ const ItemDetails = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { items } = useSelector(store => store.usersReducer)
-    debugger
+    // const { user_items } = useSelector(store => store.reviewsReducer)
+    const { reviews } = useSelector(store => store.reviewsReducer)
     const item = items.find((item) => item.id === parseInt(id))
+    // const review = reviews.find((review) => review.id === parseInt(id))
 
     console.log(item, "current item")
 // TODO : build out handleClick onChange to change the value on line 55 to reflect the item number
@@ -46,7 +49,7 @@ return (
             <div className="col-md-6 mb-4">
                 {/* <!--Content--> */}
                 <div className="p-4">
-                    <div className="mb-3">
+                    {/* <div className="mb-3">
                         <Link to="">
                             <span className="badge bg-dark me-1">Category 2</span>
                         </Link>
@@ -56,18 +59,20 @@ return (
                         <Link to="">
                             <span className="badge bg-danger me-1">Bestseller</span>
                         </Link>
-                    </div>
+                    </div> */}
 
                     <p className="lead">
                         <span className="me-1">
-                            <del>$200</del>
+                            {/* <del>$200</del> */}
                         </span>
-                        <span>$100</span>
+                        <span>${item.price}</span>
                     </p>
 
                     <strong><p className="text-bold">Description</p></strong>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor suscipit libero eos atque quia ipsa sint voluptatibus! Beatae sit assumenda asperiores iure at maxime atque repellendus maiores quia sapiente.</p>
+                    <p>{item.name}</p>
+                    <p>{item.description}</p>
+                 
 
                     <form className="d-flex justify-content-left" >
                         {/* <!-- Default input --> */}
@@ -90,15 +95,20 @@ return (
         <hr />
 
         {/* <!--Grid row--> */}
+        
         <div className="row d-flex justify-content-center">
-            {/* <!--Grid column--> */}
-            <div className="col-md-6 text-center">
+            {reviews.map((review) =>
+            <div key={review.id} className="col-md-6 text-center">
                 <h4 className="my-4 h4">Additional information</h4>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus suscipit modi sapiente illo soluta odit voluptates, quibusdam officia. Neque quibusdam quas a quis porro? Molestias illo neque eum in laborum.</p>
+               
+                <p>{review.title}</p>
+                <p>{review.review}</p>
             </div>
-            {/* <!--Grid column--> */}
+         )} 
         </div>
+            
+    
         {/* <!--Grid row--> */}
 
         {/* <!--Grid row--> */}
