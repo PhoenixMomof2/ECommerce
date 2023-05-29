@@ -2,20 +2,20 @@ import React, { useState, useEffect, useRef } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart, removeFromCart, adjustQty } from '../actions/items'
+import { addReview } from "../actions/reviews"
 // import { loadReviews } from "../actions/reviews"
 
 
 // TODO : edit component 
 const ItemDetails = () => {
+    const [title, setTitle] =useState("");
+    const [review, setReview] =useState("");
     const { id } = useParams()
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { items, currentUser } = useSelector(store => store.usersReducer)
-    // const { user_items } = useSelector(store => store.reviewsReducer)
-    const { reviews } = useSelector(store => store.reviewsReducer)
     const currentItem = items?.find((item) => item.id === parseInt(id))
     const itemQ = currentUser?.user_items.find((item) => item.id === currentItem.id)
-    // const [qty, setQty] = useState(0)
     const [qty, setQty] = useState(itemQ?.quantity || 0);
     const lastQtyRef = useRef(qty);
     // debugger
@@ -62,6 +62,23 @@ const handleSubmit = (event) => {
     event.preventDefault();
     handleAddItem()
   };
+
+  const submitReviewForm = (e) =>  {
+    e.preventDefault();
+    
+    const newReview = {
+        title,
+        review,
+        user_id: currentUser.id,
+        item_id: currentItem.id
+    }
+    console.log(newReview)
+    dispatch(addReview(newReview))
+}
+console.log()
+
+// create a useEffect that clears out the form and also calls the setReview
+    
 
   console.log(lastQtyRef.current, "last qty");
 // const handleSubmit = (event) => {
@@ -138,20 +155,20 @@ return (
                     </form> 
                     
                 </div>
-                {/* <!--Content--> */}
+             
             </div>
-            {/* <!--Grid column--> */}
+    
         </div>
-        {/* <!--Grid row--> */}
+ 
 
         <hr />
 
-        {/* <!--Grid row--> */}
+  
         
         <div className="row d-flex justify-content-center">
-            {reviews && reviews.map((review) =>
+            {currentItem.reviews && currentItem.reviews.map((review) =>
             <div key={review.id} className="col-md-6 text-center">
-                <h4 className="my-4 h4">Additional information</h4>
+                <h4 className="my-4 h4">Reviews:</h4>
 
                
                 <p>{review.title}</p>
@@ -159,31 +176,21 @@ return (
             </div>
          )} 
         </div>
+
             
     
-        {/* <!--Grid row--> */}
-
-        {/* <!--Grid row--> */}
+     
         <div className="row">
-            {/* <!--Grid column--> */}
-            <div className="col-lg-4 col-md-12 mb-4">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" className="img-fluid" alt="" />
-            </div>
-            {/* <!--Grid column--> */}
-
-            {/* <!--Grid column--> */}
-            <div className="col-lg-4 col-md-6 mb-4">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" className="img-fluid" alt="" />
-            </div>
-            {/* <!--Grid column--> */}
-
-            {/* <!--Grid column--> */}
-            <div className="col-lg-4 col-md-6 mb-4">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" className="img-fluid" alt="" />
-            </div>
-            {/* <!--Grid column--> */}
+    
+       
+        <form onSubmit={submitReviewForm}>
+        <input type="text" value={title} className="form-control" placeholder="Type Title..." onChange={(e) => setTitle(e.target.value)} />
+        <input type="text" value={review} className="form-control" placeholder="Type Product Review" onChange={(e) => setReview(e.target.value)} />
+        <button type="submit" className="btn bg-warning p-2 btn-outline-primary fw-bold"> Add Review
+        </button> 
+        </form>
         </div>
-        {/* <!--Grid row--> */}
+  
     </div>
 </main>
        )

@@ -1,5 +1,5 @@
 import { headers } from "../Globals"
-import { setErrors } from "./errors";
+import { setErrors, clearErrors } from "./errors";
 
 
 
@@ -15,11 +15,30 @@ export const loadReviews = () => {
         dispatch(action)
        })
     }
-
-    // <div>
-        // reviews
-        // build out similar to items.jsx action file.
-    // {/* </div> */}
-  
 }
+
+    export const addReview = (review) => {
+        return dispatch => {
+            fetch('/reviews', {
+                method: "POST",
+                headers,
+                body: JSON.stringify(review)
+              })
+                .then(resp => resp.json())
+                .then(data => {
+                  if(data.errors) {
+                    dispatch(setErrors(data.errors));
+                  } else {
+                    const action = {
+                      type: "ADD_REVIEW",
+                      payload: data
+                    }
+                    dispatch(action)
+                    dispatch(clearErrors())
+                  }
+                })
+
+            }
+    
+        }
 

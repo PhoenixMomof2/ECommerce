@@ -1,3 +1,5 @@
+import { showItem } from "../actions/items"
+
 const initialState = {
 users: [],
 currentUser: null,
@@ -6,6 +8,7 @@ loggedIn: false,
 user_items: [], //user_items is cart
 showItem: null, 
 items: [],
+reviews: []
 }
 
 // add all of the state values to the object above.
@@ -66,10 +69,6 @@ const usersReducer = (state=initialState, action) => {
           user_items: updatedUserItems
         }
     }
-
-
-
-
             case "ADJUST_QTY":
                 return {...state, user_items: state.user_items.map(item => item.id === action.payload.id ? {...item, quantity: action.payload.quantity} : item)}
                   
@@ -78,6 +77,18 @@ const usersReducer = (state=initialState, action) => {
                     ...state,
                     user_items: state.user_items.filter(item => item.id !== action.payload.id)
                 }
+                case "LOAD_REVIEWS":
+      return {
+        ...state,
+        reviews: action.payload
+      }
+      case "ADD_REVIEW":
+        const updatedItem = {...state.showItem, reviews: [...state.reviews, action.payload] }
+        return{
+          ...state,
+          reviews: [...state.reviews, action.payload], 
+          showItem: updatedItem
+        }
                 
         default:
             return state;
