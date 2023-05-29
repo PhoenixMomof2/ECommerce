@@ -66,6 +66,10 @@ const usersReducer = (state=initialState, action) => {
           user_items: updatedUserItems
         }
     }
+
+
+
+
             case "ADJUST_QTY":
                 return {...state, user_items: state.user_items.map(item => item.id === action.payload.id ? {...item, quantity: action.payload.quantity} : item)}
                   

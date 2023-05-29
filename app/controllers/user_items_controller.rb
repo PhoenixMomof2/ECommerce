@@ -23,7 +23,8 @@ class UserItemsController < ApplicationController
 
     # TODO : current_user.items to show ?
     def index
-        @user_items = @user.user_items
+        byebug
+        @user_items = @current_user.user_items
         render json: @user_items 
     end
 

@@ -61,7 +61,8 @@ function App() {
                <Route path="/reviews" element={<ReviewList loading={ loading } /> } />  
                <Route path="/about" element={<About /> } /> 
                <Route path="/checkout" element={<Checkout cartCount={cartCount} /> } /> 
-               <Route path="/items/:id" element={<ItemDetails /> } /> 
+               {/* <Route path="/checkout" element={<Checkout cartCount={currentUser.user_items} /> } />  */}
+               <Route path="/items/:id" element={<ItemDetails cartCount={cartCount} /> } /> 
 
 
              </Routes> 

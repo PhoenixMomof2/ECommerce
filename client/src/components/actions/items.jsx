@@ -34,8 +34,8 @@ export const removeFromCart = (id) => {
     return { type: "REMOVE_FROM_CART", payload: id }
 }
 
-export const adjustQty = (id, value) => {
-  return { type: "ADJUST_QTY", payload: { id, qty: value} }
+export const adjustQty = (id, qty) => {
+  return { type: "ADJUST_QTY", payload: { id, quantity: qty} }
 }
 
 // Check syntax of deleteItem. Missing data in the dispatch?
