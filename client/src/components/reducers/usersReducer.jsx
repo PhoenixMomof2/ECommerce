@@ -1,98 +1,85 @@
-import { showItem } from "../actions/items"
+// import { showItem } from "../actions/items"
 
 const initialState = {
 users: [],
 currentUser: null,
-// currentUser: {},
 loggedIn: false,
-user_items: [], //user_items is cart
+// user_items: [], //user_items is cart
 showItem: null, 
 items: [],
 reviews: []
 }
 
-// add all of the state values to the object above.
-
 const usersReducer = (state=initialState, action) => {
     switch(action.type) {
         case "LOAD_USERS":
-            return {
+          return {
             ...state,
             users: action.payload
         }
         case "LOGIN_USER":
-            return {
-                ...state,
-                currentUser: action.payload,
-                loggedIn: true
-            }
-            case "ADD_USER":
-                return {
-                    ...state,
-                    users: [...state.users, action.payload]
-                }
+          return {
+            ...state,
+            currentUser: action.payload,
+            loggedIn: true
+        }
+        case "ADD_USER":
+          return {
+            ...state,
+            users: [...state.users, action.payload]
+        }
         case "LOGOUT_USER":
-            return {
-                ...state,
-                currentUser: null,
-                loggedIn: false
-            }
-                case "LOAD_ITEMS":
-                  return {
-                    ...state,
-                     items: action.payload
-                  }
-            
-                case "SHOW_ITEM":
-                    return {
-                        ...state, 
-                        showItem: action.payload
-                    }
-          
-            case "ADD_TO_CART":
-      const item = action.payload;
-      const inCart = state.currentUser?.user_items?.find(
-        (cartItem) => cartItem.id === item.id
-      );
-      const updatedUserItems = inCart
-        ? state.currentUser.user_items.map((cartItem) =>
-            cartItem.id === item.id
-              ? { ...cartItem, quantity: cartItem.quantity + 1 }
-              : cartItem
-          )
-        : [...state.currentUser?.user_items ?? [], { ...item, quantity: 1 }];
-
-      return {
-        ...state,
-        currentUser: {
-          ...state.currentUser,
-          user_items: updatedUserItems
+          return {
+            ...state,
+            currentUser: null,
+            loggedIn: false
         }
-    }
-            case "ADJUST_QTY":
-                return {...state, user_items: state.user_items.map(item => item.id === action.payload.id ? {...item, quantity: action.payload.quantity} : item)}
-                  
-                case "REMOVE_FROM_CART":
-                return {
-                    ...state,
-                    user_items: state.user_items.filter(item => item.id !== action.payload.id)
-                }
-                case "LOAD_REVIEWS":
-      return {
-        ...state,
-        reviews: action.payload
-      }
-      case "ADD_REVIEW":
-        const updatedItem = {...state.showItem, reviews: [...state.reviews, action.payload] }
-        return{
-          ...state,
-          reviews: [...state.reviews, action.payload], 
-          showItem: updatedItem
+        case "LOAD_ITEMS":
+          return {
+            ...state,
+              items: action.payload
+        }    
+        case "SHOW_ITEM":
+          return {
+              ...state, 
+              showItem: action.payload
+        } 
+        case "ADD_TO_CART":
+          const item = action.payload;
+          const inCart = state.currentUser?.user_items?.find(
+          (cartItem) => cartItem.id === item.id)
+          const updatedUserItems = inCart
+          ? state.currentUser.user_items.map((cartItem) =>
+              cartItem.id === item.id
+                ? { ...cartItem, quantity: cartItem.quantity + 1 }
+                : cartItem
+            )
+          : [...state.currentUser?.user_items ?? [], { ...item, quantity: 1 }]
+          return {
+            ...state,
+            currentUser: {...state.currentUser, user_items: updatedUserItems}
         }
-                
+        case "ADJUST_QTY":
+          return {...state.currentUser, user_items: state.currentUser.user_items.map(item => item.id === action.payload.id ? {...item, quantity: action.payload.quantity} : item)}            
+        case "REMOVE_FROM_CART":
+          return {
+              ...state,
+              user_items: state.user_items.filter(item => item.id !== action.payload.id)
+        }
+        case "LOAD_REVIEWS":
+          return {
+            ...state,
+            reviews: action.payload
+        }
+        case "ADD_REVIEW":
+          const updatedItem = {...state.showItem, reviews: [...state.reviews, action.payload] }
+          return {
+            ...state,
+            reviews: [...state.reviews, action.payload], 
+            showItem: updatedItem
+        }                
         default:
-            return state;
+          return state;
     }
 }
-
 export default usersReducer;
