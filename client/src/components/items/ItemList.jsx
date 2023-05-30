@@ -7,11 +7,9 @@ import { useNavigate } from 'react-router-dom'
 
 
 const ItemList = () => {
-  // const {items: user_items, currentUser} = useSelector(store => store.usersReducer)
   const { items } = useSelector(store => store.usersReducer)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
 
   const handleClick = (id) => {
     dispatch(showItem(id))

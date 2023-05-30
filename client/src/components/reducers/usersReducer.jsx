@@ -3,8 +3,9 @@
 const initialState = {
 users: [],
 currentUser: null,
+cartCount: 0,
 loggedIn: false,
-// user_items: [], //user_items is cart
+user_items: [], //user_items is cart
 showItem: null, 
 items: [],
 reviews: []
@@ -39,6 +40,11 @@ const usersReducer = (state=initialState, action) => {
             ...state,
               items: action.payload
         }    
+        case "LOAD_USER_ITEMS":
+          return {
+            ...state,
+              user_items: action.payload
+        }    
         case "SHOW_ITEM":
           return {
               ...state, 
@@ -55,12 +61,29 @@ const usersReducer = (state=initialState, action) => {
                 : cartItem
             )
           : [...state.currentUser?.user_items ?? [], { ...item, quantity: 1 }]
+          const updatedCartCount = state.cartCount + 1; // Increment the cart count
           return {
             ...state,
-            currentUser: {...state.currentUser, user_items: updatedUserItems}
+            currentUser: {...state.currentUser, user_items: updatedUserItems},
+            cartCount: updatedCartCount
+        }
+        case "UPDATE_CART_COUNT":
+          return {
+            ...state,
+            cartCount: action.payload
         }
         case "ADJUST_QTY":
-          return {...state.currentUser, user_items: state.currentUser.user_items.map(item => item.id === action.payload.id ? {...item, quantity: action.payload.quantity} : item)}            
+          return {
+            ...state,
+            currentUser: {
+              ...state.currentUser,
+              user_items: state.currentUser.user_items.map((item) =>
+                item.id === action.payload.id
+                  ? { ...item, quantity: action.payload.quantity }
+                  : item
+              )
+            }
+        }            
         case "REMOVE_FROM_CART":
           return {
               ...state,

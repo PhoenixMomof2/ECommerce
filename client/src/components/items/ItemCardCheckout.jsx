@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 const ItemCardCheckout = ({item}) => {
   return (
-    <div className="card mb-3">
+    <div key={item.id} className="card mb-3">
                   <div className="card-body">
 
                     <div className="d-flex justify-content-between">
